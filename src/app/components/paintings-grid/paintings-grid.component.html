@@ -1,0 +1,14 @@
+<div class="paintings-grid-container">
+    <div *ngFor="let paint of paintings | async">
+        <!-- {{paint | json}} -->
+        <div class="card">
+            <div class="paint-img" style="background-image: url({{paint.webImage.url}})"></div>
+            <div class="paint-details">
+                <h3><a href="#">{{paint.title}}</a></h3>
+                <div><h4>Author :</h4><p>{{paint.principalOrFirstMaker}}</p></div>
+                <div><h4>Plate :</h4><p>{{paint.longTitle}}</p></div>
+                <div><h4>Made in :</h4><p>{{paint.productionPlaces}}</div>
+            </div>
+        </div>
+    </div>
+</div>
