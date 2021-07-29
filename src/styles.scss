@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:wght@700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+
 // scss COLORS variables 
 
 // primary
@@ -12,19 +12,22 @@ $light-blue:#4ABEFF;
 
 // secondary
 $very-dark-desaturated-blue: hsl(212, 27%, 19%);
-$very-dark-grayish-blue: hsl(213, 9%, 39%);
+// $very-dark-grayish-blue: hsl(213, 9%, 39%);
+$very-dark-grayish-blue: #9fa2af;
 $dark-grayish-blue: hsl(232, 10%, 55%);
 $grayish-blue: hsl(210, 4%, 67%);
 $white: hsl(0, 0%, 100%);
+$black: hsl(0, 100%, 1%);
 
 // scss BODY variables
 
 //size
 $font-size: 18px;
+$font-size-mobile: 14px;
 
 //fonts
-$primary-font: 'Barlow', sans-serif;
-$secondary-font: 'Fraunces', serif;
+$primary-font: 'Montserrat', sans-serif;
+
 
 
 // GLOBAL STYLES
@@ -33,10 +36,24 @@ $secondary-font: 'Fraunces', serif;
 body{
     font-family:$primary-font;
     font-size: $font-size;
+    font-display: swap;
     margin: 0;
     padding: 0;
 }
 
 a{
     text-decoration: none;
+}
+
+p{
+    color: $very-dark-grayish-blue;
+    line-height: 1.5em;
+}
+
+//mobile view
+
+@media only screen and (max-width: 768px){
+    p{
+       font-size: $font-size-mobile;
+    }
 }

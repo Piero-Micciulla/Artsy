@@ -8,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class PaintingsSectionComponent implements OnInit {
 
   constructor() { }
+  public query = '';
 
   ngOnInit(): void {
+  }
+
+  setQuery(query: string): void{
+    console.log(query);
+    this.query = query;
   }
 
 }

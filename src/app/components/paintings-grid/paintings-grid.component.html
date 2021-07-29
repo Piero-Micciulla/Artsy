@@ -1,14 +1,16 @@
 <div class="paintings-grid-container">
-    <div *ngFor="let paint of paintings | async">
-        <!-- {{paint | json}} -->
+    <div *ngFor="let paint of paintings | async | searchFilter: query">
         <div class="card">
-            <div class="paint-img" style="background-image: url({{paint.webImage.url}})"></div>
-            <div class="paint-details">
-                <h3><a href="#">{{paint.title}}</a></h3>
-                <div><h4>Author :</h4><p>{{paint.principalOrFirstMaker}}</p></div>
-                <div><h4>Plate :</h4><p>{{paint.longTitle}}</p></div>
-                <div><h4>Made in :</h4><p>{{paint.productionPlaces}}</div>
+            <div class="image-box">
+              <img rel="preload" src="{{paint.webImage.url}}">
+            </div>
+            <div class="painting-details">
+              <h3><a [routerLink]="['/paintings', paint.id]">{{paint.title}}</a></h3>
+              <p><b>By:</b> {{paint.principalOrFirstMaker}}</p>
+              <p><b>Plate:</b> {{paint.longTitle}}</p>
+              <div class="link-box"><span><a [routerLink]="['/paintings', paint.id]"><b>DETAILS</b></a></span></div>
             </div>
         </div>
     </div>
 </div>
+

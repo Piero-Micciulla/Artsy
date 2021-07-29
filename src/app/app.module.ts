@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +16,9 @@ import {PaintingsDataService} from './shared/services/paintings-data.service';
 import { NewsComponent } from './pages/news/news.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
+import { PaintingDetailsComponent } from './components/painting-details/painting-details.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SearchFilterPipe } from './shared/pipes/search-filter.pipe';
 
 
 
@@ -29,14 +32,18 @@ import { HomeComponent } from './pages/home/home.component';
     PaintingsGridComponent,
     NewsComponent,
     ContactComponent,
-    HomeComponent
+    HomeComponent,
+    PaintingDetailsComponent,
+    FooterComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [PaintingsDataService],
+  providers: [PaintingsDataService, SearchFilterPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

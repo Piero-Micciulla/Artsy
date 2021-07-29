@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Output } from '@angular/core';
+import { PaintingsDataService } from '../../shared/services/paintings-data.service';
+import { Painting } from '../../shared/models/painting.model';
+import {EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-paintings-search-bar',
@@ -7,11 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./paintings-search-bar.component.scss']
 })
 export class PaintingsSearchBarComponent implements OnInit {
+  @Output()
+  public query = new EventEmitter<string>();
 
-  constructor() { }
 
   ngOnInit(): void {
-
+    console.log('this is the query [searchbar]:' + this.query);
+  }
+  setQuery(query: string): void{
+    this.query.emit(query);
   }
 
 }

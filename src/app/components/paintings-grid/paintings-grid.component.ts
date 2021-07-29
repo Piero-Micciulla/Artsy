@@ -1,7 +1,9 @@
+import { SearchFilterPipe } from './../../shared/pipes/search-filter.pipe';
 import { Painting } from './../../shared/models/painting.model';
 import { PaintingObject } from './../../shared/models/paintings-object.model';
-import { Component, OnInit } from '@angular/core';
-import {PaintingsDataService} from '../../shared/services/paintings-data.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { PaintingsDataService } from '../../shared/services/paintings-data.service';
+
 
 
 
@@ -12,16 +14,21 @@ import {PaintingsDataService} from '../../shared/services/paintings-data.service
 })
 export class PaintingsGridComponent implements OnInit{
 
-  paintings: Promise<Painting[]>;
+  paintings: Promise<Painting[]> | null = null;
+  @Input()
+  public query = '';
 
   constructor(
-    private paintingsDataService: PaintingsDataService
+    private paintingsDataService: PaintingsDataService,
+    private searchFilterPipe: SearchFilterPipe
 ) {
 }
 
   ngOnInit(): void {
+    console.log('this is the query:' + this.query);
     this.paintings = this.paintingsDataService.getPaintings();
-    console.log(this.paintings);
+    console.log('paintings from grid-comp' + this.paintings);
+
   }
 
 }
